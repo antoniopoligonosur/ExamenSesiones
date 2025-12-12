@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Crear Ensayo Clinico{% endblock %}
+
+{% block cabecera %}
+    <h1>Crear Nuevo Ensayo Clinico</h1>
+    <hr>
+{% endblock %}
+
+{% block contenido %}
+    <form action="{% url 'EnsayoClinico_create' %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-success">Crear Ensayo Clinico</button>
+        <a href="{% url 'EnsayoClinico_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

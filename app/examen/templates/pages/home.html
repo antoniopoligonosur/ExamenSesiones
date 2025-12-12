@@ -3,37 +3,26 @@
 
 {% block title %}Examen - Home{% endblock %}
 
-
 {% block cabecera %}
-    <h1>Examen Formularios y Sesiones Django.</h1>
-    <h3>Manuel Avecilla - 2ºDAW</h3>
+    <h1>Examen Sesiones 2025</h1>
     <hr>
     <br>
 {% endblock %}
 
 {% block contenido %}
-    
     <h5>Menu Enlaces</h5>
     <br>
-
-    <p>(modelo) - CRUD</p>
+    <p>Evento - CRUD</p>
     <ul>
-        <li><a href="">(modelo) - CREATE</a></li>
-        <li><a href="">(modelo) - READ - Lista</a></li>
-        <li><a href="">(modelo) - READ - Filtro avanzado</a></li>
-        <li><a href="">(modelo) - UPDATE</a></li>
-        <li><a href="">(modelo) - DELETE</a></li>
+        <li><a href="{% url 'evento_create' %}">Evento - CREATE</a></li>
+        <li><a href="{% url 'eventos_listar' %}">Evento - READ - Lista</a></li>
+        <li><a href="{% url 'evento_buscar_avanzado' %}">Evento - READ - Filtro avanzado</a></li>
     </ul>
-
     <br>
     <hr>
-
-    <p>URLs</p>
+    <p>Usuarios</p>
     <ul>
         <li><a href="{% url 'usuarios_listar' %}">Lista Usuarios</a></li>
-        <li><a href="{% url 'tecnicos_listar' %}">Lista Tecnicos</a></li>
+        <li><a href="{% url 'organizadores_listar' %}">Lista Organizadores</a></li>
     </ul>
-
-
 {% endblock %}
-

@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Examen - Ensayos{% endblock %}
+
+{% block cabecera %}
+    <h1>Lista Ensayos</h1>
+    <hr>
+    <br>
+{% endblock %}
+
+{% block contenido %}
+    
+    {# Modal de eliminación (si tienes el archivo modal, si no, bórralo) #}
+    {% if perms.examen.delete_ensayosClinicos %}
+        {% include "base/modal/_modal_eliminar.html" %}
+    {% endif %}
+
+    {% if Mensaje_Busqueda %}
+        <div class="alert alert-info">
+            <pre>{{Mensaje_Busqueda}}</pre>
+        </div>
+        <hr>
+        <br>
+    {% endif %}
+
+    <div class="d-flex flex-wrap align-content-center justify-content-center gap-4">
+        {% for EnsayoClinico_Mostrar in EnsayoClinico_Mostrar %}
+            {% include "models/EnsayosClinicos/_item_EnsayoClinico.html" %}
+        {% empty %}
+            <h2>No se encontraron Ensayos</h2>
+        {% endfor %}
+    </div>
+
+{% endblock %}

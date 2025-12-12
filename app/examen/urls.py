@@ -15,27 +15,24 @@ urlpatterns = [
     #---HOME---
     path('',views.home, name='home'),
     
-    
-    #---REGISTRO-LOGIN---
-    
     # Registro
     path('registro/usuario',views.registrar_usuario,name='registrar_usuario'),
     
     # Login
     path('accounts/login/', MiLoginView.as_view(), name='login'),
 
-
     #---Usuario---
-    #---------Detalles-Lista---------
     path('usuario/listar', views.usuarios_listar, name='usuarios_listar'),
     path('usuario/<int:id_usuario>', views.dame_usuario, name='dame_usuario'),
     
-    #---Tecnico---
-    #---------Detalles-Lista---------
-    path('tecnico/listar', views.tecnicos_listar, name='tecnicos_listar'),
-    path('tecnico/<int:id_tecnico>', views.dame_tecnico, name='dame_tecnico'),
-    
-    
+    #---investigador---
+    path('investigador/listar', views.investigadores_listar, name='investigadore_listar'),
+    path('investigador/<int:id_investigador>', views.dame_investigador, name='dame_investigador'),
     
     #---CRUD---
+    path('ensayoclinico/crear', views.EnsayoClinico_create, name='EnsayoClinico_crear'),
+    path('ensayoclinico/listar', views.EnsayosClinicos_listar, name='EnsayosClinicos_listar'),
+    path('ensayoclinico/editar/<int:id_ensayoclinico>', views.EnsayoClinico_editar, name='EnsayoClinico_editar'),
+    path('ensayoclinico/eliminar/<int:id_ensayoclinico>', views.EnsayoClinico_eliminar, name='EnsayoClinico_eliminar'),
+    
 ]

@@ -1,0 +1,39 @@
+<div class="card mb-3" style="max-width: 22rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ EnsayosClinicos_Mostrar.nombre }}</h5>
+
+        <h6 class="card-subtitle mb-2 text-muted">
+            {# OJO: Aquí usamos .investigador #}
+            Investigador: {{ EnsayosClinicos_Mostrar.investigador.usuario.username }}
+        </h6>
+
+        <p class="card-text">
+            {{ EnsayosClinicos_Mostrar.descripcion|default:"Sin descripcion"|truncatechars:100 }}
+        </p>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Aforo: {{ EnsayosClinicos_Mostrar.aforo }}</li>
+            <li class="list-group-item">Sala: {{ EnsayosClinicos_Mostrar.sala.nombre }}</li>
+            <li class="list-group-item">Inicio: {{ EnsayosClinicos_Mostrar.fecha_inicio|date:"d/m/Y H:i" }}</li>
+            <li class="list-group-item">Fin: {{ EnsayosClinicos_Mostrar.fecha_fin|date:"d/m/Y H:i" }}</li>
+        </ul>
+
+        <div class="card-body text-center">
+            {% if perms.examen.change_ensayoClinico %}
+                {# Solo mostramos editar si es el dueño (lo controlamos en vista, pero aquí queda bonito ocultarlo) #}
+                {% if user == EnsayosClinicos_Mostrar.investigador.usuario %}
+                    <a class="btn btn-primary btn-sm" href="{% url 'EnsayoClinico_crear' id_ensayoclinico=EnsayosClinicos_Mostrar.id %}">
+                        Editar
+                    </a>
+                {% endif %}
+            {% endif %}
+
+            {% if perms.examen.delete_ensayoClinico  %}
+                <a class="btn btn-danger btn-sm" href="{% url 'EnsayoClinico_eliminar' id_ensayoclinico=EnsayosClinicos_Mostrar.id %}" onclick="return confirm('¿Seguro que quieres borrar este ensayo clinico?');">
+                    Eliminar
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>

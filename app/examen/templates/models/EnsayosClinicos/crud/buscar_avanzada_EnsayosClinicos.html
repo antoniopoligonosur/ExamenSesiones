@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Búsqueda Avanzada{% endblock %}
+
+{% block cabecera %}
+    <h1>Búsqueda Avanzada de Ensayos Clinicos</h1>
+    <hr>
+{% endblock %}
+
+{% block contenido %}
+    <form action="{% url 'ensayoClinico_buscar_avanzado' %}" method="get">
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-info">Buscar</button>
+        <a href="{% url 'EnsayosClinicos_listar' %}" class="btn btn-secondary">Ver Todos</a>
+    </form>
+{% endblock %}

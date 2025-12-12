@@ -1,0 +1,28 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Examen - Organizadores{% endblock %}
+
+{% block cabecera %}
+    <h1>Lista de Organizadores</h1>
+    <hr>
+    <br>
+{% endblock %}
+
+{% block contenido %}
+
+    <div class="d-flex flex-wrap align-content-center justify-content-center gap-4">
+        {% for organizador in Organizadores_Mostrar %}
+            <div class="card mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ organizador.usuario.username }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Código: {{ organizador.codigo_empleado }}</h6>
+                    <p class="card-text">Email: {{ organizador.usuario.email }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <h2>No hay organizadores registrados.</h2>
+        {% endfor %}
+    </div>
+
+{% endblock %}

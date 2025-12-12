@@ -1,6 +1,6 @@
 <header class="bg-light border-bottom mb-3 p-3">
     <div class="container d-flex justify-content-between align-items-center">
-        <h1 class="h4 m-0">Examen-Manuel</h1>
+        <h1 class="h4 m-0">Examen-Sesiones</h1>
 
 
         <a href="{% url 'home' %}" class="me-3 text-decoration-none">Volver al Incio</a>
@@ -28,8 +28,9 @@
         <div class="datos-sesion">
             <pre>Datos de la Sesion</pre>
             <hr>
-            <pre>Usuario: {{ request.session.usuario }}</pre>
+            <pre>Rol: {{ request.user.get_rol_display}}</pre>
             <pre>Hora login: {{ request.session.hora_login}}</pre>
+            <pre>Visitas: {{ request.session.contador_visitas}}</pre>
         </div>
     </div>
 {% endif %}

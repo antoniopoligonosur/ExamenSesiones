@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}Editar Ensayo Clinico{% endblock %}
+
+{% block cabecera %}
+    <h1>Editar Ensayo Clinico: {{ ensayoClinico.nombre }}</h1>
+    <hr>
+{% endblock %}
+
+{% block contenido %}
+    <form action="{% url 'EnsayoClinico_editar' id_ensayoclinico=EnsayosClinicos_Mostrar.id %}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="{% url 'EnsayosClinicos_listar' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

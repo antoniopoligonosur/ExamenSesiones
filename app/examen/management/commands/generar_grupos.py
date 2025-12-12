@@ -31,19 +31,16 @@ class Command(BaseCommand):
             # ______________________ GRUPO ADMINISTRADOR __________________________
             "Administrador": [
                 
-                # Usuario
                 "add_usuario", "change_usuario", "delete_usuario", "view_usuario",
             ],
-            # ______________________ GRUPO TECNICO __________________________
-            "Tecnico": [
+            # ______________________ GRUPO INVESTIGADOR __________________________
+            "Investigador": [
                 
-                # Usuario
-                "change_usuario","view_usuario",
+                "add_usuario", "change_usuario", "delete_usuario", "view_usuario",
             ],
-            # ______________________ GRUPO USUARIO ________________________________
-            "Usuario": [
+            # ______________________ GRUPO PACIENTE ________________________________
+            "Paciente": [
                 
-                # Usuario
                 "view_usuario",
             ],
         }
